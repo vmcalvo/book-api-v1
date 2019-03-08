@@ -18,7 +18,21 @@ pipeline {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {     
                      configFileProvider([configFile(fileId: 'apigee-settings', variable: 'APIGEE_SETTINGS')]) {
-                        mvn install -s${APIGEE_SETTINGS} -P${profile} -Dusername=${USERNAME} -Dpassword=${PASSWORD}
+                        cmd "mvn install -s${APIGEE_SETTINGS} -P${profile} -Ddescription.suffix=\" branch: ${BRANCH_NAME} commit: ${GIT_COMMIT}\" -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
+                    }
+ 
+                }
+            }
+        }
+    }
+    post {
+        always {
+            junit 'test/unit/test-report.xml'
+            cucumber 'test/integration/report.json'
+        }
+    }
+}
+
                     }
  
                 }
