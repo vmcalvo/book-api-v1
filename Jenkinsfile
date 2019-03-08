@@ -18,7 +18,7 @@ pipeline {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {     
                      configFileProvider([configFile(fileId: 'apigee-settings', variable: 'APIGEE_SETTINGS')]) {
-                        "mvn install -s${APIGEE_SETTINGS} -P${profile} -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
+                        mvn install -s${APIGEE_SETTINGS} -P${profile} -Dusername=${USERNAME} -Dpassword=${PASSWORD}
                     }
  
                 }
