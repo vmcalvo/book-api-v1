@@ -2,7 +2,7 @@ pipeline {
     agent any 
     tools {
         maven "maven-3.x"
-        nodejs "nodejs-8.x"
+        nodejs "nodejs-10.x"
     }
     stages {
         stage('Deploy And Test'){
