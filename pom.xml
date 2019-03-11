@@ -234,7 +234,9 @@
 									project.properties.setProperty('worldParameters', new groovy.json.JsonBuilder(worldParameters).toString());
 									println "Printing to Console";
 									println project.properties.getProperty('worldParameters');
-									println "Printing to Console"
+									println "Printing to Console";
+									project.properties.setProperty('worldParametersEscaped', new groovy.json.JsonBuilder(worldParameters).toString().replace('"', '\"'));
+									println "Printing to Console";
 								]]>
             					</script>
           					</scripts>
@@ -334,7 +336,7 @@
 						<configuration>
 							<executable>node</executable>
 							<workingDirectory>test/integration</workingDirectory>
-							<commandlineArgs>./node_modules/cucumber/bin/cucumber-js --world-parameters "${worldParameters}" --format ./node_modules/cucumber-pretty -f json:report.json</commandlineArgs>
+							<commandlineArgs>./node_modules/cucumber/bin/cucumber-js --world-parameters '${worldParametersEscaped}' --format ./node_modules/cucumber-pretty -f json:report.json</commandlineArgs>
 						</configuration>
 					</execution>
 				</executions>
