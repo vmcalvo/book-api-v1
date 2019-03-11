@@ -232,6 +232,9 @@
 										}
 									}
 									project.properties.setProperty('worldParameters', new groovy.json.JsonBuilder(worldParameters).toString());
+									println "Printing to Console";
+									println project.properties.getProperty('worldParameters');
+									println "Printing to Console"
 								]]>
             					</script>
           					</scripts>
