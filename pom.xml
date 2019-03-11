@@ -232,13 +232,8 @@
 										}
 									}
 									project.properties.setProperty('worldParameters', new groovy.json.JsonBuilder(worldParameters).toString());
-									println "Printing to Console";
-									println project.properties.getProperty('worldParameters');
-									println "Printing to Console";
 									project.properties.setProperty('worldParametersEscaped', new groovy.json.JsonBuilder(worldParameters).toString().replace('\"', '\\"'));
-									println new groovy.json.JsonBuilder(worldParameters).toString();									
-									println project.properties.getProperty('worldParametersEscaped');
-									println "Printing to Console";
+									
 								]]>
             					</script>
           					</scripts>
