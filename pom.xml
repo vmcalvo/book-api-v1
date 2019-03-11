@@ -334,7 +334,7 @@
 						<configuration>
 							<executable>node</executable>
 							<workingDirectory>test/integration</workingDirectory>
-							<commandlineArgs>./node_modules/cucumber/bin/cucumber-js --world-parameters '${worldParameters}' --format ./node_modules/cucumber-pretty -f json:report.json</commandlineArgs>
+							<commandlineArgs>./node_modules/cucumber/bin/cucumber-js --world-parameters "${worldParameters}" --format ./node_modules/cucumber-pretty -f json:report.json</commandlineArgs>
 						</configuration>
 					</execution>
 				</executions>
